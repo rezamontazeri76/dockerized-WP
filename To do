@@ -1,0 +1,10 @@
+docker compose with:
+    nginx
+    wp
+    mysql
+    phpmyadmin
+RProxy_nginx:
+    wp> wp.securitywave.co > wp:9000
+    phpmyadmin > pmd:80
+certbot:
+    add to docker compose file
