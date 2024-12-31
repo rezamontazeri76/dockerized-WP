@@ -50,15 +50,17 @@ services:
     networks:
       - internal-network
 
-  certbot:
-    depends_on:
-      - webserver
-    image: certbot/certbot
-    container_name: certbot
-    volumes:
-      - certbot-etc:/etc/letsencrypt
-      - wordpress:/var/www/html
-    command: certonly --standalone --email MohammadReza.Montazeri@securitywave.co --agree-tos --no-eff-email --force-renewal -d srv684.mysnp.ir -d www.srv684.mysnp.ir
+  # certbot:
+  #   depends_on:
+  #     - webserver
+  #   image: certbot/certbot
+  #   container_name: certbot
+  #   ports:
+  #     - 80:80
+  #   volumes:
+  #     - certbot-etc:/etc/letsencrypt
+  #     - wordpress:/var/www/html
+  #   command: certonly --standalone --email mail@mail.com --agree-tos --no-eff-email --force-renewal -d srv684.mysnp.ir 
   
   pma:
     depends_on:
