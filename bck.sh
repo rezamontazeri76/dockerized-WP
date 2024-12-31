@@ -13,8 +13,8 @@ fi
 
 # Database credentials and details
 DB_HOST="db" #name of the mysql container
-DB_USER="wpuser"
-DB_PASSWORD="vqD2Et57YoMoYajviyZ43tdukqLg2M"
+DB_USER="$MYSQL_USER"
+DB_PASSWORD="$MYSQL_PASSWORD"
 DB_NAME="wordpress"
 NETWORK="internal-network" #name of the network where mysql container is running. You can check the list of the docker neworks using doocker network ls
 
