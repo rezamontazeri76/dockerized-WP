@@ -58,16 +58,19 @@ services:
     volumes:
       - certbot-etc:/etc/letsencrypt
       - wordpress:/var/www/html
-    command: certonly --webroot --webroot-path=/var/www/html --email MohammadReza.Montazeri@securitywave.co --agree-tos --no-eff-email --force-renewal -d srv684.mysnp.ir -d www.srv684.mysnp.ir
+    command: certonly --standalone --email MohammadReza.Montazeri@securitywave.co --agree-tos --no-eff-email --force-renewal -d srv684.mysnp.ir -d www.srv684.mysnp.ir
   
   pma:
     depends_on:
        - db
-    image: phpmyadmin/phpmyadmin:5.2-fpm-alpine
+       - certbot
+    image: phpmyadmin/phpmyadmin:5.2
     container_name: pma
     restart: always
     networks:
       - internal-network
+    expose:
+      - "80"
     environment:
       - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
       - PMA_HOST=db
