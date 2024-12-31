@@ -65,7 +65,6 @@ services:
   pma:
     depends_on:
        - db
-       - certbot
     image: phpmyadmin/phpmyadmin:5.2
     container_name: pma
     restart: always
